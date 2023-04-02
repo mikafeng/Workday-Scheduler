@@ -23,8 +23,8 @@ $(function () {
 
     $('.time-block').each(function () {
       var currHour = parseInt($(this).attr('id'));
-      console.log(this)
-      console.log(hour)
+
+      console.log(hour);
 
       if (currHour > hour) {
         $(this).addClass("future");
@@ -50,6 +50,20 @@ saveBtn.on("click", function() {
 });
 
 
+//Get Text from Local Storage
+function displayText() {
+  $(".hour").each(function() {
+    var currHour = $(this).text();
+    var currText = localStorage.getItem(currHour);
+    
+      $(this).siblings(".description").val(currText);
+
+  });
+};
+
+displayText();
+
+
 // Date and Time for Current Day
 var today = dayjs().format('MMM D, YYYY hh:mm A');
 $("#currentDay").text(today);
@@ -60,9 +74,9 @@ $("#currentDay").text(today);
 
 
 
-function printProjectData(text) {
-  $('#hour-9').children().eq(1).append().text(text);
-}
-var text = 'hardcoded';
-printProjectData(text);
+// function printProjectData(text) {
+//   $('#hour-9').children().eq(1).append().text(text);
+// }
+// var text = 'hardcoded';
+// printProjectData(text);
 

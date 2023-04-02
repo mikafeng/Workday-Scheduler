@@ -10,11 +10,10 @@ var saveBtn = $(".saveBtn");
   //Change TimeBlock to Corresponding Color Class Based on Current Hour
   function blockColor() {
     var hour = dayjs().hour();
+   console.log(hour);
 
     $('.time-block').each(function () {
       var currHour = parseInt($(this).attr('id'));
-
-      console.log(hour);
 
       if (currHour > hour) {
         $(this).addClass("future");

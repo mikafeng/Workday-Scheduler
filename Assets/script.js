@@ -7,6 +7,7 @@
 //button: class = "saveBtn"
 
 
+
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -15,6 +16,7 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
  
+// var saveBtn = $('#.saveBtn');
 //  var saveBtnEl = $('#saveBtn');
 //  var rootEl = $('#root');
 // var displayEl = $('#description')
@@ -62,3 +64,13 @@ var text = 'hardcoded';
 printProjectData(text);
 // var timeBlock = dayjs().format('MMM D, YYYY hh:mm A');
 // $("#hour-9").children().eq(1).append().text(timeBlock);
+
+function blockColor() {
+  var hour = dayjs().hour();
+
+  $('.time-block').each(function () {
+    var currHour = parseInt($(this).attr('id'));
+    console.log(this)
+    console.log(hour)
+  })
+}

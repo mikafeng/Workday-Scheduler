@@ -9,7 +9,7 @@
 
 
 $(function () {
-  var saveBtn = $(".saveBtn");
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -17,24 +17,31 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
  
+  //Change TimeBlock to Corresponding Color Class Based on Current Hour
+  function blockColor() {
+    var hour = dayjs().hour();
 
-//  var rootEl = $('#root');
-// var displayEl = $('#description')
+    $('.time-block').each(function () {
+      var currHour = parseInt($(this).attr('id'));
+      console.log(this)
+      console.log(hour)
 
+      if (currHour > hour) {
+        $(this).addClass("future");
+      } else if (currHour === hour) {
+        $(this).addClass("present")
+      } else {
+        $(this).addClass("past")
+      }
 
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
+    })
+  };
 
-var today = dayjs().format('MMM D, YYYY hh:mm A');
-$("#currentDay").text(today);
-
-
-});
+  blockColor();
 
 var saveBtn = $(".saveBtn");
 
+// Save on Click Persist to Local Storage
 saveBtn.on("click", function() {
   console.log('click!');
   var time = $(this).siblings(".hour").text();
@@ -43,31 +50,19 @@ saveBtn.on("click", function() {
 });
 
 
+// Date and Time for Current Day
+var today = dayjs().format('MMM D, YYYY hh:mm A');
+$("#currentDay").text(today);
+
+
+});
+
+
+
+
 function printProjectData(text) {
   $('#hour-9').children().eq(1).append().text(text);
 }
 var text = 'hardcoded';
 printProjectData(text);
-// var timeBlock = dayjs().format('MMM D, YYYY hh:mm A');
-// $("#hour-9").children().eq(1).append().text(timeBlock);
 
-function blockColor() {
-  var hour = dayjs().hour();
-
-  $('.time-block').each(function () {
-    var currHour = parseInt($(this).attr('id'));
-    console.log(this)
-    console.log(hour)
-
-    if (currHour > hour) {
-      $(this).addClass("future");
-    } else if (currHour === hour){
-      $(this).addClass("present")
-    } else {
-      $(this).addClass("past")
-    }
-
-    })
-  };
-
-  blockColor();

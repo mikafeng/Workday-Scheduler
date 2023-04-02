@@ -72,5 +72,14 @@ function blockColor() {
     var currHour = parseInt($(this).attr('id'));
     console.log(this)
     console.log(hour)
-  })
-}
+
+    if (currHour > hour) {
+      $(this).addClass("future");
+    } else if (currHour === hour){
+      $(this).addClass("present")
+    } else {
+      $(this).addClass("past")
+    }
+
+    })
+  };

@@ -1,6 +1,8 @@
 # Workday-Scheduler
 A browser application using javascript and jquery to map out a work day’s hour blocks.
 
+Deployed Link:  https://mikafeng.github.io/Workday-Scheduler/ 
+
 ## Description
 When the planner is opened, the current day/time and work day timeblocks are displayed.
 Timeblocks range from 8AM through 4PM.
